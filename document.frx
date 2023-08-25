@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/22/2023 14:18:23" ReportInfo.Modified="08/23/2023 23:16:50" ReportInfo.CreatorVersion="2023.2.0.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqM7gJFg/iaLrqMhRfGy5lGhnYaxUIVSmT/LqyeEFwxbx/l8ckezr84YIzzyPO54/uHn8rGJ8CluMVQLI2ry7uM/Tzk/re8oB/8iDjO4DJp8Dv8vEFNsO3h7DKuBKNJiJoC9iWc8NrqbbS40dmd2OaRrFwH+97+rdSPddYXn/fBlKec1dCeGWS8JxVGqLrQq49T6hFg03KCV4Dwjcwh4k/Cg==">
+      <TableDataSource Name="PaymentDetails" DataType="System.Int32" Enabled="true" TableName="PaymentDetails">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="CardOwnerName" DataType="System.String"/>
+        <Column Name="CardNumber" DataType="System.String"/>
+        <Column Name="ExpirationDate" DataType="System.String"/>
+        <Column Name="SecurityCode" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="37.8">
+      <TextObject Name="Text2" Left="264.6" Top="18.9" Width="94.5" Height="18.9" Text="CardOwnerName" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="83.6" Width="718.2" Height="75.6" DataSource="PaymentDetails">
+      <TextObject Name="Text1" Left="264.6" Top="37.8" Width="94.5" Height="18.9" Text="[PaymentDetails.CardOwnerName]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="163.2" Width="718.2" Height="245.7">
+      <TextObject Name="Text3" Left="264.6" Width="198.45" Height="18.9" Text="[PaymentDetails.ExpirationDate]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="264.6" Top="56.7" Width="245.7" Height="18.9" Text="[PaymentDetails.SecurityCode]" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="264.6" Top="122.85" Width="94.5" Height="18.9" Text="[PaymentDetails.SecurityCode]" Font="Arial, 10pt"/>
+    </PageFooterBand>
+  </ReportPage>
+</Report>

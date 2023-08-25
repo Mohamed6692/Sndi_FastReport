@@ -1,0 +1,41 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+/*tab navigation*/
+.login-logout-card .card-header {
+    padding: Opx Opx 12px 0px;
+}
+.Login-Logout-card Ul.ngv-tabs {
+    margin: Opx Opx -12px Opx;
+}
+login-logout-card li.nav-item {
+    width: 50%;
+}
+
+login-logout-card a.nav-link
+{
+    font-size: 1rem;
+    color: #495057;
+    text-align: center;
+    padding: 1rem;
+}
+
+.Login-logout-card .card-body {
+    padding: 10px 20px;
+}

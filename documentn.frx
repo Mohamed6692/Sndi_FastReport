@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/17/2023 12:44:16" ReportInfo.Modified="08/17/2023 12:44:56" ReportInfo.CreatorVersion="2023.2.0.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqM7gJFg/iaLrqMhRfGy5lGhnYaxUIVSmT/LqyeEFwxbx/l8ckezr84YIzzyPO54/uHn8rGJ8CluMVQLI2ry7uM/Tzk/re8oB/8iDjO4DJp8Dv8vEFNsO3h7DKuBKNJiJoC9iWc8NrqbbS40dmd2OaRrFwH+97+rdSPddYXn/fBlKec1dCeGWS8JxVGqLrQq49JNUCvUP8mdZlvvhaDGFITA==">
+      <TableDataSource Name="PaymentDetails" DataType="System.Int32" Enabled="true" TableName="PaymentDetails">
+        <Column Name="Id" DataType="System.Int32"/>
+        <Column Name="CardOwnerName" DataType="System.String"/>
+        <Column Name="CardNumber" DataType="System.String"/>
+        <Column Name="ExpirationDate" DataType="System.String"/>
+        <Column Name="SecurityCode" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text2" Left="245.7" Width="94.5" Height="18.9" Text="CardOwnerName" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="75.6" DataSource="PaymentDetails">
+      <TextObject Name="Text1" Left="245.7" Top="28.35" Width="170.1" Height="18.9" Text="[PaymentDetails.CardOwnerName]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="153.75" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>

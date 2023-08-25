@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/24/2023 15:37:21" ReportInfo.Modified="08/25/2023 11:01:57" ReportInfo.CreatorVersion="2023.2.0.0">
+  <Dictionary>
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqM7gJFg/iaLrqMhRfGy5lGhnYaxUIVSmT/LqyeEFwxbx/l8ckezr84YIzzyPO54/uHn8rGJ8CluMVQLI2ry7uM//a1dkNJ+wtCHQw4MATXw5vUsH4ir1lhEPNByBiT66BGl4vDIe/4xtvUTQjjuf6VVFMTxaa2SRXBvzhOrcU5mB1e9WjC2mEd5SLIVYiKo4ghq2xVxdnzYyMrF5oGqd7Tg==">
+      <TableDataSource Name="Document" DataType="System.Int32" Enabled="true" TableName="Document">
+        <Column Name="id" DataType="System.String"/>
+        <Column Name="Numero" DataType="System.String"/>
+        <Column Name="Date" DataType="System.DateTime"/>
+        <Column Name="Circonscription" DataType="System.String"/>
+        <Column Name="LieuxEtablissement" DataType="System.String"/>
+        <Column Name="NomDeFamille" DataType="System.String"/>
+        <Column Name="NomDeJeuneFille" DataType="System.String"/>
+        <Column Name="Prenom" DataType="System.String"/>
+        <Column Name="Pseudo" DataType="System.String"/>
+        <Column Name="Sexe" DataType="System.String"/>
+        <Column Name="SituationMatrimoniale" DataType="System.String"/>
+        <Column Name="NombreEnfant" DataType="System.Int32"/>
+        <Column Name="DateDenaissance" DataType="System.DateTime"/>
+        <Column Name="LieuxNaissance" DataType="System.String"/>
+        <Column Name="PaysNaissance" DataType="System.String"/>
+        <Column Name="Nationnalite" DataType="System.String"/>
+        <Column Name="CommuneDeNaissance" DataType="System.String"/>
+        <Column Name="NumeroDeTelephone" DataType="System.String"/>
+        <Column Name="Profession" DataType="System.String"/>
+        <Column Name="Domicile" DataType="System.String"/>
+        <Column Name="TypeDepiece" DataType="System.String"/>
+        <Column Name="NumeroDePiece" DataType="System.String"/>
+        <Column Name="DateEdition" DataType="System.DateTime"/>
+      </TableDataSource>
+      <TableDataSource Name="Filiation" DataType="System.Int32" Enabled="true" TableName="Filiation">
+        <Column Name="id" DataType="System.String"/>
+        <Column Name="NomPere" DataType="System.String"/>
+        <Column Name="PrenomPere" DataType="System.String"/>
+        <Column Name="DateDenaissancePere" DataType="System.DateTime"/>
+        <Column Name="LieuxNaissancePere" DataType="System.String"/>
+        <Column Name="NomMere" DataType="System.String"/>
+        <Column Name="PrenomMere" DataType="System.String"/>
+        <Column Name="DateDenaissanceMere" DataType="System.DateTime"/>
+        <Column Name="LieuxNaissanceMere" DataType="System.String"/>
+        <Column Name="DocumentId" DataType="System.String"/>
+        <Column Name="DateeditionMere" DataType="System.DateTime"/>
+        <Column Name="DateeditionPere" DataType="System.DateTime"/>
+        <Column Name="LieuxEditionMere" DataType="System.String"/>
+        <Column Name="LieuxEditionPere" DataType="System.String"/>
+        <Column Name="NumeroPieceMere" DataType="System.String"/>
+        <Column Name="NumeroPiecePere" DataType="System.String"/>
+        <Column Name="TypeDePiecesMere" DataType="System.String"/>
+        <Column Name="TypeDePiecesPere" DataType="System.String"/>
+      </TableDataSource>
+    </MsSqlDataConnection>
+  </Dictionary>
+  <ReportPage Name="Page1" Watermark.Font="Arial, 60pt">
+    <ReportTitleBand Name="ReportTitle1" Width="718.2" Height="37.8"/>
+    <PageHeaderBand Name="PageHeader1" Top="41.8" Width="718.2" Height="28.35">
+      <TextObject Name="Text6" Left="236.25" Width="94.5" Height="18.9" Text="SituationMatrimoniale" Font="Arial, 10pt"/>
+    </PageHeaderBand>
+    <DataBand Name="Data1" Top="74.15" Width="718.2" Height="472.5" DataSource="Document">
+      <TextObject Name="Text1" Left="236.25" Top="330.75" Width="94.5" Height="18.9" Text="[Document.Numero]" Font="Arial, 10pt"/>
+      <TextObject Name="Text3" Left="236.25" Top="378" Width="94.5" Height="18.9" Text="[Document.NomDeFamille]" Font="Arial, 10pt"/>
+      <TextObject Name="Text4" Left="236.25" Top="425.25" Width="94.5" Height="18.9" Text="[Document.NombreEnfant]" Font="Arial, 10pt"/>
+      <TextObject Name="Text2" Left="236.25" Top="283.5" Width="94.5" Height="18.9" Text="Numero" Font="Arial, 10pt"/>
+      <TextObject Name="Text5" Left="236.25" Top="207.9" Width="170.1" Height="18.9" Text="[Document.SituationMatrimoniale]" Font="Arial, 10pt"/>
+    </DataBand>
+    <PageFooterBand Name="PageFooter1" Top="550.65" Width="718.2" Height="18.9"/>
+  </ReportPage>
+</Report>
