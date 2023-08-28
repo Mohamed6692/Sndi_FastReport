@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ActeAdministratif.Migrations.Auth
 {
     [DbContext(typeof(AuthContext))]
-    [Migration("20230825084317_NewContext")]
-    partial class NewContext
+    [Migration("20230826220700_voirr1")]
+    partial class voirr1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

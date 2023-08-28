@@ -69,7 +69,7 @@
                 <div class="login-box custom-login-box" style=" margin-top: 190px;">
                     <div class="card card-outline card-primary">
                         <div class="card-header text-center">
-                            <a href="#" class="h1"><b>SNDI</b>_SIGP</a>
+                            <a href="#" class="h1">SIGP</a>
                         </div>
                         <div class="card-body">
                             <h1 class="login-box-msg">Bienvenue!!</h1>
@@ -97,28 +97,15 @@
                                         <div class="icheck-primary">
                                             <input asp-for="Input.RememberMe" class="form-check-input" />
                                             <label asp-for="Input.RememberMe" class="form-label">
-                                                Remember Me
+                                                Me rapeller
                                             </label>
                                         </div>
                                     </div>
                                     <div class="col-4">
-                                        <button id="login-submit" type="submit" class="btn btn-primary btn-block">Sign In</button>
+                                        <button id="login-submit" type="submit" class="btn btn-primary btn-block">Connexion</button>
                                     </div>
                                 </div>
                             </form>
-
-                            <div class="social-auth-links text-center mt-2 mb-3">
-                                <a href="#" class="btn btn-block btn-primary">
-                                    <i class="fab fa-facebook mr-2"></i> Sign in using Facebook
-                                </a>
-                                <a href="#" class="btn btn-block btn-danger">
-                                    <i class="fab fa-google-plus mr-2"></i> Sign in using Google+
-                                </a>
-                            </div>
-
-                            <p class="mb-1">
-                                <a href="forgot-password.html">I forgot my password</a>
-                            </p>
                             <p class="mb-0">
                                 <a asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Register a new membership</a>
                             </p>

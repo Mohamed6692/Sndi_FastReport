@@ -15,6 +15,7 @@ using ActeAdministratif.Areas.Identity.Data;
 using ActeAdministratif.Data;
 using Microsoft.AspNetCore.Session;
 using Microsoft.Extensions.Configuration;
+using Microsoft.AspNetCore.Authentication.Cookies;
 
 namespace UserManager
 {
@@ -53,11 +54,18 @@ namespace UserManager
             services.AddDefaultIdentity<SNDIUser>(options => options.SignIn.RequireConfirmedAccount = false)
                 .AddEntityFrameworkStores<AuthContext>();
 
+            //services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+            //.AddCookie(options =>
+            //{
+            //    options.LoginPath = "/Identity/Account/Login"; // Spécifiez la page de connexion
+            //    options.LogoutPath = "/Identity/Account/Logout"; // Spécifiez la page de déconnexion
+            //});
+
+            services.AddDbContext<AppIdentityDbContext>(options =>
+            options.UseSqlServer(Configuration.GetConnectionString("DefaultConnectionString") ?? throw new InvalidOperationException("Connection string 'AuthContext' not found.")));
+            services.AddControllersWithViews();
+            services.AddRazorPages();
             services.AddSession();
-
-
-
-
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -70,30 +78,29 @@ namespace UserManager
             else
             {
                 app.UseExceptionHandler("/Home/Error");
-                //app.UseExceptionHandler("/Errors/NoFound");
-                // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
+
             app.UseHttpsRedirection();
             app.UseStaticFiles();
-            // nouveau
             app.UseFastReport();
-            //app.UseFastReport();
-            // fin 
             app.UseRouting();
 
-            //app.UseMiddleware<UserMiddleware>();
-            app.UseSession();
+            // Placez app.MapRazorPages() ici
+          
 
+            app.UseSession();
             app.UseAuthentication();
             app.UseAuthorization();
-
 
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+                // Si vous avez des Pages Razor, vous devriez les mapper ici.
+                 endpoints.MapRazorPages();
 
             });
         }

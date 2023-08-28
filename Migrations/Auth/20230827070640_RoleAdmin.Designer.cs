@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace ActeAdministratif.Migrations.Auth
 {
     [DbContext(typeof(AuthContext))]
-    [Migration("20230825085655_NewContext2")]
-    partial class NewContext2
+    [Migration("20230827070640_RoleAdmin")]
+    partial class RoleAdmin
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -73,6 +73,9 @@ namespace ActeAdministratif.Migrations.Auth
                         .HasColumnType("bit");
 
                     b.Property<string>("Prenom")
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<string>("Role")
                         .HasColumnType("nvarchar(100)");
 
                     b.Property<string>("SecurityStamp")

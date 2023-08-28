@@ -73,6 +73,9 @@ namespace ActeAdministratif.Migrations.Auth
                     b.Property<string>("Prenom")
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(100)");
+
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("nvarchar(max)");
 

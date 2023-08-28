@@ -51,6 +51,15 @@
     <link rel="stylesheet" href="/plugins/jqvmap/jqvmap.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="/dist/css/adminlte.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+    <!-- SweetAlert2 -->
+    <link rel="stylesheet" href="../../plugins/sweetalert2-theme-bootstrap-4/bootstrap-4.min.css">
+    <!-- Toastr -->
+    <link rel="stylesheet" href="../../plugins/toastr/toastr.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
     <!-- overlayScrollbars -->
     <link rel="stylesheet" href="/plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
     <!-- Daterange picker -->
@@ -205,12 +214,11 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1>Advanced Form</h1>
+                            <h3>Etape 2/2</h3>
                         </div>
                         <div class="col-sm-6">
                             <ol class="breadcrumb float-sm-right">
                                 <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Advanced Form</li>
                             </ol>
                         </div>
                     </div>
@@ -221,56 +229,46 @@
             <section class="content">
                 <div class="container-fluid">
                     <div class="center-text">
-                        <h4>Saisie des informations sur le demandeur</h4>
+                        <h4>Saisie des informations sur la filiation</h4>
                     </div>
                     <hr />
-   <form asp-action="Create" class="row g-3 needs-validation" novalidate enctype="multipart/form-data">
+              <form asp-action="Create" class="row g-3 needs-validation" novalidate enctype="multipart/form-data">
                   <input type="hidden" asp-for="DocumentId" />
                         <div class="row g-3 needs-validation">
-                            <div class="col-md-4">
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip01" class="form-label">Nom du père</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip01" asp-for="NomPere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip02" class="form-label">Prénom du père</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip02" asp-for="PrenomPere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                           >
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip03" class="form-label">Né le</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="date" class="form-control" id="validationTooltip03" asp-for="DateDenaissancePere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip04" class="form-label">Lieu de Naissance du père</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip04" asp-for="LieuxNaissancePere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
-                                <label for="validationTooltip05" class="form-label">Type de pieces</label>
-                            </div
-                            <div class="col-md-8 position-relative">
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip05" class="form-label">Type de pieces</label>
                                 <select class="form-control select2 select2-danger" id="validationTooltip05" name="TypeDePiecesPere" required asp-for="TypeDePiecesPere" data-dropdown-css-class="select2-danger">
                                     <option selected disabled value="">Choisir un type.</option>
@@ -283,70 +281,58 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4  position-relative">
                                 <label for="validationTooltip06" class="form-label">Numero de pieces</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip06" asp-for="NumeroPiecePere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                       
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip07" class="form-label">Date edition</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="date" class="form-control" id="validationTooltip07" asp-for="DateeditionPere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                       
+                            <div class="col-md-4  position-relative">
                                 <label for="validationTooltip08" class="form-label">Lieux edition</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip08" asp-for="LieuxEditionPere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-
-
-                            <div class="col-md-4">
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip09" class="form-label">Nom de la mère</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip09" asp-for="NomMere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip10" class="form-label">Prénom de la mère</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip10" asp-for="PrenomMere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip11" class="form-label">Né le</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="date" class="form-control" id="validationTooltip011" asp-for="DateDenaissanceMere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip12" class="form-label">Lieu de Naissance de la mère</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip12" asp-for="LieuxNaissanceMere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
@@ -354,10 +340,8 @@
                             </div>
 
 
-                            <div class="col-md-4">
-                                <label for="validationTooltip05" class="form-label">Type de pieces</label>
-                            </div
-                            <div class="col-md-8 position-relative">
+                 
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip13" class="form-label">Type de pieces</label>
                                 <select class="form-control select2 select2-danger" id="validationTooltip13" name="TypeDePiecesMere" required asp-for="TypeDePiecesMere" data-dropdown-css-class="select2-danger">
                                     <option selected disabled value="">Choisir un type.</option>
@@ -370,35 +354,39 @@
                                 </div>
                             </div>
 
-                            <div class="col-md-4">
+                            
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip14" class="form-label">Numero de pieces</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip14" asp-for="NumeroPieceMere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip15" class="form-label">Date edition</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="date" class="form-control" id="validationTooltip15" asp-for="DateeditionMere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
-                            <div class="col-md-4">
+                            
+                            <div class="col-md-4 position-relative">
                                 <label for="validationTooltip16" class="form-label">Lieux edition</label>
-                            </div>
-                            <div class="col-md-8 position-relative">
                                 <input type="text" class="form-control" id="validationTooltip16" asp-for="LieuxEditionMere" required>
                                 <div class="valid-tooltip">
                                     Looks good!
                                 </div>
                             </div>
                             <div class="col-12">
-                            <button class="btn btn-primary" type="submit">Suivant</button>
+                            @*<button class="btn btn-primary" type="submit">Suivant</button>*@
+                                
+
+                                    <div class="card-body">
+                                        <button type="submit" class="btn btn-success swalDefaultSuccess">
+                                            Suivant
+                                        </button>
+                                    </div>
                         </div>
                         </div>
 
@@ -458,6 +446,173 @@
     <script src="/dist/js/demo.js"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <script src="/dist/js/pages/dashboard.js"></script>
+    <!-- jQuery -->
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <!-- Bootstrap 4 -->
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="../../plugins/sweetalert2/sweetalert2.min.js"></script>
+    <!-- Toastr -->
+    <script src="../../plugins/toastr/toastr.min.js"></script>
+    <!-- AdminLTE App -->
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <!-- AdminLTE for demo purposes -->
+    <script src="../../dist/js/demo.js"></script>
+    <!-- Page specific script -->
+    <script>
+        $(function () {
+            var Toast = Swal.mixin({
+                toast: true,
+                position: 'top-end',
+                showConfirmButton: false,
+                timer: 3000
+            });
+
+            $('.swalDefaultSuccess').click(function () {
+                Toast.fire({
+                    icon: 'success',
+                    title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.swalDefaultInfo').click(function () {
+                Toast.fire({
+                    icon: 'info',
+                    title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.swalDefaultError').click(function () {
+                Toast.fire({
+                    icon: 'error',
+                    title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.swalDefaultWarning').click(function () {
+                Toast.fire({
+                    icon: 'warning',
+                    title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.swalDefaultQuestion').click(function () {
+                Toast.fire({
+                    icon: 'question',
+                    title: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+
+            $('.toastrDefaultSuccess').click(function () {
+                toastr.success('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+            $('.toastrDefaultInfo').click(function () {
+                toastr.info('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+            $('.toastrDefaultError').click(function () {
+                toastr.error('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+            $('.toastrDefaultWarning').click(function () {
+                toastr.warning('Lorem ipsum dolor sit amet, consetetur sadipscing elitr.')
+            });
+
+            $('.toastsDefaultDefault').click(function () {
+                $(document).Toasts('create', {
+                    title: 'Toast Title',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultTopLeft').click(function () {
+                $(document).Toasts('create', {
+                    title: 'Toast Title',
+                    position: 'topLeft',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultBottomRight').click(function () {
+                $(document).Toasts('create', {
+                    title: 'Toast Title',
+                    position: 'bottomRight',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultBottomLeft').click(function () {
+                $(document).Toasts('create', {
+                    title: 'Toast Title',
+                    position: 'bottomLeft',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultAutohide').click(function () {
+                $(document).Toasts('create', {
+                    title: 'Toast Title',
+                    autohide: true,
+                    delay: 750,
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultNotFixed').click(function () {
+                $(document).Toasts('create', {
+                    title: 'Toast Title',
+                    fixed: false,
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultFull').click(function () {
+                $(document).Toasts('create', {
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+                    title: 'Toast Title',
+                    subtitle: 'Subtitle',
+                    icon: 'fas fa-envelope fa-lg',
+                })
+            });
+            $('.toastsDefaultFullImage').click(function () {
+                $(document).Toasts('create', {
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.',
+                    title: 'Toast Title',
+                    subtitle: 'Subtitle',
+                    image: '../../dist/img/user3-128x128.jpg',
+                    imageAlt: 'User Picture',
+                })
+            });
+            $('.toastsDefaultSuccess').click(function () {
+                $(document).Toasts('create', {
+                    class: 'bg-success',
+                    title: 'Toast Title',
+                    subtitle: 'Subtitle',
+                    body: 'Votre modification a bien été prise en compte.'
+                })
+            });
+            $('.toastsDefaultInfo').click(function () {
+                $(document).Toasts('create', {
+                    class: 'bg-info',
+                    title: 'Toast Title',
+                    subtitle: 'Subtitle',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultWarning').click(function () {
+                $(document).Toasts('create', {
+                    class: 'bg-warning',
+                    title: 'Toast Title',
+                    subtitle: 'Subtitle',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultDanger').click(function () {
+                $(document).Toasts('create', {
+                    class: 'bg-danger',
+                    title: 'Toast Title',
+                    subtitle: 'Subtitle',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+            $('.toastsDefaultMaroon').click(function () {
+                $(document).Toasts('create', {
+                    class: 'bg-maroon',
+                    title: 'Toast Title',
+                    subtitle: 'Subtitle',
+                    body: 'Lorem ipsum dolor sit amet, consetetur sadipscing elitr.'
+                })
+            });
+        });
+    </script>
 </body>
 </html>
 
@@ -467,3 +622,8 @@
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
 }
+
+
+            
+     
+

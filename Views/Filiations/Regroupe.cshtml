@@ -42,7 +42,7 @@
 
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="~/img/ActeAdministratif.jpg" alt="Sndi" height="60" width="60">
+            <img class="animation__shake" src="~/img/Sndi.jpg" alt="Sndi" height="60" width="60">
         </div>
 
 
@@ -136,7 +136,7 @@
                 <div>
 
 
-
+@*
 <div>
     <h2>Informations du Document</h2>
     <p>Numéro de Document: @Model.Document?.Numero</p>
@@ -165,8 +165,8 @@
    
 
     <!-- Ajoutez d'autres propriétés de Document ici -->
-</div>
-<div>
+</div>*@
+@*<div>
     <h2>Informations de la Filiation</h2>
     <p>Nom du père: @Model.Filiation?.NomPere</p>
     <p>Prénom du père: @Model.Filiation?.PrenomPere</p>
@@ -178,7 +178,7 @@
     <p>Lieux de naissance de la mere: @Model.Filiation?.LieuxNaissanceMere</p>
   
     <!-- Ajoutez d'autres propriétés de Filiation ici -->
-</div>
+</div>*@
 
 <div>
    
@@ -197,7 +197,7 @@
                                 <div class="col-12">
                                     <div class="callout callout-info">
                                         <h5><i class="fas fa-info"></i> Note:</h5>
-                                        This page has been enhanced for printing. Click the print button at the bottom of the invoice to test.
+                                        Toutes les données saisie.
                                     </div>
 
 
@@ -216,7 +216,7 @@
                                         <!-- info row -->
                                         <div class="row invoice-info">
                                             <div class="col-sm-4 invoice-col">
-                                                From
+                                                Etape 1/2
                                                 <address>
                                                     <strong>Info document .</strong><br>
                                                     Numéro de Document: @Model.Document?.Numero<br>
@@ -247,7 +247,7 @@
                                             </div>
                                             <!-- /.col -->
                                             <div class="col-sm-4 invoice-col">
-                                                To
+                                                etape 2/2
                                                 <address>
                                                     <strong>Info filiation</strong><br>
                                                     Nom du père: @Model.Filiation?.NomPere<br>
@@ -261,18 +261,18 @@
                                                 </address>
                                             </div>
                                             <!-- /.col -->
-                                            <div class="col-sm-4 invoice-col">
+@*                                            <div class="col-sm-4 invoice-col">
                                                 <b>Invoice #007612</b><br>
                                                 <br>
                                                 <b>Order ID:</b> 4F3S8J<br>
                                                 <b>Payment Due:</b> 2/22/2014<br>
                                                 <b>Account:</b> 968-34567
-                                            </div>
+                                            </div>*@
                                             <!-- /.col -->
                                         </div>
                                         <!-- /.row -->
                                         <!-- Table row -->
-                                        <div class="row">
+                                        @*<div class="row">
                                             <div class="col-12 table-responsive">
                                                 <table class="table table-striped">
                                                     <thead>
@@ -317,7 +317,7 @@
                                                 </table>
                                             </div>
                                             <!-- /.col -->
-                                        </div>
+                                        </div>*@
                                         <!-- /.row -->
 
                                         <div class="row">

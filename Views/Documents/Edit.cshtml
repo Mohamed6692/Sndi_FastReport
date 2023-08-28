@@ -56,9 +56,8 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
-        <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="~/img/ActeAdministratif.jpg" alt="Sndi" height="60" width="60">
+            <img class="animation__shake" src="~/img/Sndi.jpg" alt="" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -111,7 +110,7 @@
             <!-- Brand Logo -->
             <a href="index3.html" class="brand-link">
                 <img src="~/img/ActeAdministratif.jpg" alt="Sndi Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-                <span class="brand-text font-weight-light">AdminLTE 3</span>
+                <span class="brand-text font-weight-light">SNDI</span>
             </a>
 
             <!-- Sidebar -->
@@ -119,7 +118,7 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
                         <a href="#" class="d-block">ID User:</a>
@@ -153,23 +152,34 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
+                                    <a class="nav-link" asp-area="" asp-controller="Admin"
+                                       asp-action="Create">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Gestion des operateurs de saisie</p>
+                                        Register
                                     </a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="./index2.html" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
 
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller="DemandeInit"
+                                       asp-action="Index">
+                                        <i class="far fa-circle nav-icon"></i>
                                         <p>Demande initier</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link" asp-area="" asp-controller="Documents"
                                        asp-action="Index">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Enregister demandeur</p>
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller=""
+                                       asp-action="">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Gerer mon compte</p>
                                     </a>
                                 </li>
                             </ul>
@@ -246,9 +256,13 @@
 
                         <!-- Ajoutez ici les autres champs en suivant la même structure que ci-dessus -->
 
-                        <div class="col-md-6 position-relative">
-                            <label for="validationTooltip03" class="form-label">Centre d'etablissement</label>
-                            <input type="text" class="form-control" id="validationTooltip03" asp-for="LieuxEtablissement" required>
+                        <div class="col-md-4 position-relative">
+                            <label for="validationTooltip04" class="form-label">Centre d'etablissement</label>
+                            <select class="form-control select2 select2-danger" id="validationTooltip04" name="Sexe" required asp-for="LieuxEtablissement" data-dropdown-css-class="select2-danger">
+                                <option selected disabled value="">Choisir un genre.</option>
+                                <option value="1">MAIRIE</option>
+                                <option value="2">PREFECTURE</option>
+                            </select>
                             <div class="invalid-tooltip">
                                 Please provide a valid lieu d'établissement.
                             </div>
@@ -315,15 +329,32 @@
                         </div>
 
                         <div class="col-md-4 position-relative">
-                            <label asp-for="PaysNaissance" class="form-label">Pays de Naissance</label>
-                            <input asp-for="PaysNaissance" class="form-control" />
-                            <span asp-validation-for="PaysNaissance" class="text-danger"></span>
+                            <label for="validationTooltip14" class="form-label">Pays de Naissance</label>
+                            <select class="form-control select2 select2-danger" id="validationTooltip14" asp-for="PaysNaissance" required>
+                                <option value="" selected disabled>_____</option>
+                                @foreach (var country in ViewBag.Countries)
+                                {
+                                    <option value="@country.Name_fr">@country.Name_fr</option>
+                                }
+                            </select>
+                            <div class="invalid-tooltip">
+                                Please select a valid country.
+                            </div>
                         </div>
 
+
                         <div class="col-md-4 position-relative">
-                            <label asp-for="Nationnalite" class="form-label">Nationalité</label>
-                            <input asp-for="Nationnalite" class="form-control" />
-                            <span asp-validation-for="Nationnalite" class="text-danger"></span>
+                            <label for="validationTooltip15" class="form-label">Nationalité</label>
+                            <select class="form-control select2 select2-danger" id="validationTooltip15" asp-for="Nationnalite" required>
+                                <option value="" selected disabled>_____</option>
+                                @foreach (var country in ViewBag.Countries)
+                                {
+                                    <option value="@country.Nationality">@country.Nationality</option>
+                                }
+                            </select>
+                            <div class="invalid-tooltip">
+                                Please select a valid nationality.
+                            </div>
                         </div>
 
                         <div class="col-md-4 position-relative">

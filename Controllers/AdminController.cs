@@ -5,16 +5,18 @@ using Microsoft.AspNetCore.Mvc;
 using ActeAdministratif.Areas.Identity.Data;
 using ActeAdministratif.Controllers;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
 
 namespace Identity.Controllers
 {
    
     public class AdminController : Controller
-    {
+    {   
         private UserManager<SNDIUser> userManager;
         private IPasswordHasher<SNDIUser> passwordHasher;
         private readonly ILogger<AdminController> _logger;
-
+    
 
         //public HomeController(ILogger<HomeController> logger, UserManager<SNDIUser> userManager)
         //{
@@ -88,9 +90,11 @@ namespace Identity.Controllers
                 string randomPassword = GenerateRandomPassword(8);
                 SNDIUser appUser = new SNDIUser
                 {
-                    UserName = user.Email,
+                    UserName = user.Email, 
                     Email = user.Email,
-                    PassGenerate= randomPassword
+                    PhoneNumber =user.PhoneNumber,
+                    PassGenerate = randomPassword
+                     
                     //PassGenerate=user.PassGenerate
                 };
                 
@@ -146,6 +150,84 @@ namespace Identity.Controllers
             return View(user);
         }
 
+
+
+        //Changer password par le user connecté:
+        public async Task<IActionResult> ChangePassword()
+        {
+            // Récupérez l'utilisateur connecté
+            var user = await userManager.GetUserAsync(User);
+
+            if (user != null)
+            {
+                return View(user);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> ChangePassword(SNDIUser model)
+        {
+            // Récupérez l'utilisateur connecté
+            var user = await userManager.GetUserAsync(User);
+
+            if (user != null)
+            {
+                // Mettez à jour l'e-mail si un nouvel e-mail est fourni
+                if (!string.IsNullOrEmpty(model.Email))
+                {
+                    user.Email = model.Email;
+                }
+
+                // Mettez à jour le mot de passe si un nouveau mot de passe est fourni
+                if (!string.IsNullOrEmpty(model.PasswordHash))
+                {
+                    // Utilisez UserManager pour mettre à jour le mot de passe de l'utilisateur
+                    var result = await userManager.ChangePasswordAsync(user, null, model.PasswordHash);
+
+                    if (!result.Succeeded)
+                    {
+                        // Gérez les erreurs de mise à jour du mot de passe
+                        foreach (var error in result.Errors)
+                        {
+                            ModelState.AddModelError(string.Empty, error.Description);
+                        }
+
+                        return View(user);
+                    }
+                }
+
+                // Mettez à jour l'utilisateur
+                var updateResult = await userManager.UpdateAsync(user);
+
+                if (updateResult.Succeeded)
+                {
+                    return RedirectToAction("Index");
+                }
+                else
+                {
+                    // Gérez les erreurs de mise à jour de l'utilisateur
+                    foreach (var error in updateResult.Errors)
+                    {
+                        ModelState.AddModelError(string.Empty, error.Description);
+                    }
+
+                    return View(user);
+                }
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
+        }
+
+
+
+
+
         [HttpPost]
         public async Task<IActionResult> Delete(string id)
         {
@@ -162,6 +244,19 @@ namespace Identity.Controllers
                 ModelState.AddModelError("", "User Not Found");
             return View("Index", userManager.Users);
         }
+
+        ////Logout
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Logout()
+        //{
+        //    await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+        //    // Redirigez l'utilisateur vers une page d'accueil ou une autre page après la déconnexion
+        //    return RedirectToAction("/Home/");
+        //}
+
+
+
 
         private void Errors(IdentityResult result)
         {

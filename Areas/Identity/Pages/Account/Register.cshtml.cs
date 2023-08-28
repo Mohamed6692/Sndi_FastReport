@@ -86,6 +86,10 @@ namespace ActeAdministratif.Areas.Identity.Pages.Account
             [DataType(DataType.Text)]
             [Display(Name = "PassGenerate user")]
             public string PassGenerate { get; set; }
+
+            [DataType(DataType.Text)]
+            [Display(Name = "Role user")]
+            public string Role { get; set; }
             /// <summary>
             ///     This API supports the ASP.NET Core Identity default UI infrastructure and is not intended to be used
             ///     directly from your code. This API may change or be removed in future releases.
@@ -135,6 +139,7 @@ namespace ActeAdministratif.Areas.Identity.Pages.Account
                 var user = CreateUser();
                 user.Nom = Input.Nom;
                 user.Prenom = Input.Prenom;
+                user.Role = 1;
 
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);

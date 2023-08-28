@@ -79,7 +79,7 @@ namespace ActeAdministratif.Controllers
                 var detailsUrl = Url.Action("Details", new { id = demandeInit.id });
 
                 // Redirect to the Details action
-                return Redirect(detailsUrl);
+                return Redirect("/DemandeInit/Index");
             }
 
             // If ModelState is not valid, return to the Create view
@@ -188,37 +188,124 @@ namespace ActeAdministratif.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        //Generer Casier jurdicaire
+
         public FileResult Generate(string id)
         {
             FastReport.Utils.Config.WebMode = true;
             Report report = new();
             string path = Path.Combine(Directory.GetCurrentDirectory(), "documents.frx");
-            //var pathServer = Path.Combine(path, "Templates");
-            //path = Path.Combine(pathServer, "liste_ordonnance.frx");
 
+            // Charge la demande à partir de la base de données en fonction de l'ID
+            var demande = _context.DemandeInit.FirstOrDefault(d => d.id == id);
 
-            report.Load(path);
-            report.SetParameterValue("DemandeId", id);
-
-            if (report.Report.Prepare())
+            if (demande != null)
             {
-                PDFSimpleExport pdfExport = new()
+                report.Load(path);
+                report.SetParameterValue("DemandeId", id);
+
+                if (report.Report.Prepare())
                 {
-                    ShowProgress = false,
-                    Subject = "Subject Test",
-                    Title = "Report Title"
-                };
-                MemoryStream ms = new();
-                report.Report.Export(pdfExport, ms);
-                report.Dispose();
-                pdfExport.Dispose();
-                ms.Position = 0;
-                return File(ms, "application/pdf", "myreport.pdf");
+                    PDFSimpleExport pdfExport = new()
+                    {
+                        ShowProgress = false,
+                        Subject = "Subject Test",
+                        Title = "Report Title"
+                    };
+                    MemoryStream ms = new();
+                    report.Report.Export(pdfExport, ms);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    ms.Position = 0;
+
+                    // Modifiez le statut de la demande ici
+                    demande.status = 1;
+                    // Enregistrez les modifications dans la base de données
+                    _context.SaveChanges();
+
+                    return File(ms, "application/pdf", "myreport.pdf");
+                }
             }
 
-            else
-                return null;
+            // Si la demande n'existe pas ou si la génération du rapport échoue, retournez null ou gérez l'erreur selon vos besoins.
+            return null;
         }
+
+
+        //Generer Certificat de Nationnalié
+        //string id
+        //public FileResult Generate1()
+        //{
+        //    FastReport.Utils.Config.WebMode = true;
+        //    Report report = new();
+        //    string path = Path.Combine(Directory.GetCurrentDirectory(), "Untitled1.frx");
+        //    //var pathServer = Path.Combine(path, "Templates");
+        //    //path = Path.Combine(pathServer, "liste_ordonnance.frx");
+        //    report.Load(path);
+        //    //report.SetParameterValue("DemandeId", id);
+
+        //    if (report.Report.Prepare())
+        //    {
+        //        PDFSimpleExport pdfExport = new()
+        //        {
+        //            ShowProgress = false,
+        //            Subject = "Subject Test",
+        //            Title = "Report Title"
+        //        };
+        //        MemoryStream ms = new();
+        //        report.Report.Export(pdfExport, ms);
+        //        report.Dispose();
+        //        pdfExport.Dispose();
+        //        ms.Position = 0;
+        //        return File(ms, "application/pdf", "myreport.pdf");
+        //    }
+
+        //    else
+        //        return null;
+        //}
+
+
+        //Generer Certificat de Nationnalié
+        public FileResult Generate1(string id)
+        {
+            FastReport.Utils.Config.WebMode = true;
+            Report report = new();
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "Untitled1.frx");
+
+            // Charge la demande à partir de la base de données en fonction de l'ID
+            var demande = _context.DemandeInit.FirstOrDefault(d => d.id == id);
+
+            if (demande != null)
+            {
+                // Modifiez le statut de la demande ici
+                demande.status = 1;
+                // Enregistrez les modifications dans la base de données
+                _context.SaveChanges();
+
+                report.Load(path);
+                report.SetParameterValue("DemandeId", id);
+                if (report.Report.Prepare())
+                {
+                    PDFSimpleExport pdfExport = new()
+                    {
+                        ShowProgress = false,
+                        Subject = "Subject Test",
+                        Title = "Report Title"
+                    };
+                    MemoryStream ms = new();
+                    report.Report.Export(pdfExport, ms);
+                    report.Dispose();
+                    pdfExport.Dispose();
+                    ms.Position = 0;
+                    return File(ms, "application/pdf", "myreport.pdf");
+                }
+            }
+
+            // Si la demande n'existe pas ou si la génération du rapport échoue, retournez null ou gérez l'erreur selon vos besoins.
+            return null;
+        }
+
+
 
 
         private bool DemandeInitExists(string id)

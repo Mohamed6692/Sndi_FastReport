@@ -220,7 +220,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Advanced Form</h1>
+                    <h1>Etape 1/2</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -240,7 +240,7 @@
             </div>
             <hr />
             <form asp-action="Create" class="row g-3 needs-validation uniform-border" novalidate enctype="multipart/form-data">
-
+               <div class="container-fluid">
                 <div class="row g-3 needs-validation">
                     <div class="col-md-4 position-relative">
                         <label for="validationTooltip01" class="form-label">Numero</label>
@@ -256,6 +256,7 @@
                             Looks good!
                         </div>
                     </div>
+
                     <div class="col-md-4 position-relative">
                         <label for="validationTooltipUsername" class="form-label">Circonscription</label>
                         <div class="input-group has-validation">
@@ -266,15 +267,19 @@
                         </div>
                     </div>
 
-                    <div class="col-md-6 position-relative">
-                        <label for="validationTooltip03" class="form-label">Centre d'etablissement</label>
-                        <input type="text" class="form-control" id="validationTooltip04" asp-for="LieuxEtablissement" required>
+                    <div class="col-md-4 position-relative">
+                        <label for="validationTooltip04" class="form-label">Centre d'etablissement</label>
+                        <select class="form-control select2 select2-danger" id="validationTooltip04" name="Sexe" required asp-for="LieuxEtablissement" data-dropdown-css-class="select2-danger">
+                            <option selected disabled value="">Choisir un genre.</option>
+                            <option value="1">MAIRIE</option>
+                            <option value="2">PREFECTURE</option>
+                        </select>
                         <div class="invalid-tooltip">
                             Please provide a valid lieu d'établissement.
                         </div>
                     </div>
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip04" class="form-label">Nom de famille</label>
                         <input type="text" class="form-control" id="validationTooltip05" asp-for="NomDeFamille" required>
                         <div class="invalid-tooltip">
@@ -288,47 +293,47 @@
                             Please provide a valid nom de jeune fille.
                         </div>
                     </div>
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip05" class="form-label">Prenom</label>
                         <input type="text" class="form-control" id="validationTooltip07" asp-for="Prenom" required>
                         <div class="invalid-tooltip">
                             Please provide a valid prenom.
                         </div>
                     </div>
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip05" class="form-label">Pseudo</label>
-                        <input type="text" class="form-control" id="validationTooltip08" asp-for="Pseudo" required>
+                        <input type="text" class="form-control" id="validationTooltip08" asp-for="Pseudo" >
                         <div class="invalid-tooltip">
                             Please provide a valid pseudo.
                         </div>
                     </div>
 
-                            <div class="col-md-3 position-relative">
-                                <label for="validationTooltip04" class="form-label">Sexe</label>
-                                <select class="form-control select2 select2-danger" id="validationTooltip09" name="Sexe" required asp-for="Sexe" data-dropdown-css-class="select2-danger">
-                                    <option selected disabled value="">Choisir un genre.</option>
-                                    <option value="1">Homme</option>
-                                    <option value="2">Femme</option>
-                                </select>
-                                <div class="invalid-tooltip">
-                                    Please select a valid gender.
-                                </div>
-                            </div>
+                    <div class="col-md-4 position-relative">
+                        <label for="validationTooltip04" class="form-label">Sexe</label>
+                        <select class="form-control select2 select2-danger" id="validationTooltip09" name="Sexe" required asp-for="Sexe" data-dropdown-css-class="select2-danger">
+                            <option selected disabled value="">Choisir un genre.</option>
+                            <option value="1">HOMME</option>
+                            <option value="2">FEMME</option>
+                        </select>
+                        <div class="invalid-tooltip">
+                            Please select a valid gender.
+                        </div>
+                    </div>
 
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip05" class="form-label">Situation Matrimoniale</label>
                                 <select class="form-control select2 select2-danger" id="validationTooltip10" name="SituationMatrimoniale" required asp-for="SituationMatrimoniale">
                             <option selected disabled value="">Choose..</option>
-                            <option value="1">Celibataire</option>
-                            <option value="2">Marié</option>
+                            <option value="CELIBATAIRE">CELIBATAIRE</option>
+                                        <option value="MARIE">MARIE</option>
                         </select>
                         <div class="invalid-tooltip">
                             Please select a valid marital status.
                         </div>
                     </div>
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip06" class="form-label">Nombre d'Enfants</label>
                         <input type="number" class="form-control" id="validationTooltip11" asp-for="NombreEnfant" required>
                         <div class="invalid-tooltip">
@@ -336,7 +341,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip07" class="form-label">Date de Naissance</label>
                         <input type="date" class="form-control" id="validationTooltip12" asp-for="DateDenaissance" required>
                         <div class="invalid-tooltip">
@@ -344,7 +349,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip08" class="form-label">Lieu de Naissance</label>
                         <input type="text" class="form-control" id="validationTooltip13" asp-for="LieuxNaissance" required>
                         <div class="invalid-tooltip">
@@ -353,72 +358,37 @@
                     </div>
 
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip14" class="form-label">Pays de Naissance</label>
-                        <select class="form-select" id="validationTooltip14" asp-for="PaysNaissance" required>
-                            <option value="" selected disabled>Choose...</option>
-                        </select>
-                        <div class="invalid-tooltip">
-                            Please select a valid country of birth.
-                        </div>
-                    </div>
-
-                    <script>
-                        // Fonction pour charger la liste des pays depuis l'API
-                        async function loadCountries() {
-                            const response = await fetch('https://restcountries.com/v3.1/all');
-                            const data = await response.json();
-
-                            const selectElement = document.getElementById('validationTooltip14');
-
-                            data.forEach(country => {
-                                const option = document.createElement('option');
-                                option.value = country.cca3; // Utilisez un identifiant unique pour la valeur
-                                option.textContent = country.name.common;
-                                selectElement.appendChild(option);
-                            });
-                        }
-
-                        // Appeler la fonction lors du chargement de la page
-                        loadCountries();
-                    </script>
+                                <select class="form-control select2 select2-danger" id="validationTooltip14" asp-for="PaysNaissance" required>
+                                <option value="" selected disabled>_____</option>
+                                    @foreach (var country in ViewBag.Countries)
+                                    {
+                                        <option value="@country.Name_fr">@country.Name_fr</option>
+                                    }
+                           </select>
+                          <div class="invalid-tooltip">
+                            Please select a valid country.
+                          </div>
+                      </div>
 
 
-
-
-                    <div class="col-md-6 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip15" class="form-label">Nationalité</label>
-                        <select class="form-select" id="validationTooltip15" asp-for="Nationnalite" required>
-                            <option value="" selected disabled>Choose...</option>
+                                <select class="form-control select2 select2-danger" id="validationTooltip15" asp-for="Nationnalite" required>
+                            <option value="" selected disabled>_____</option>
+                                    @foreach (var country in ViewBag.Countries)
+                                    {
+                                        <option value="@country.Nationality">@country.Nationality</option>
+                                    }
                         </select>
                         <div class="invalid-tooltip">
                             Please select a valid nationality.
                         </div>
                     </div>
 
-                    <script>
-                        // Fonction pour charger les nationalités depuis l'API
-                        async function loadNationalities() {
-                            const response = await fetch('https://restcountries.com/v3.1/all');
-                            const data = await response.json();
 
-                            const selectElement = document.getElementById('validationTooltip15');
-
-                            data.forEach(country => {
-                                const option = document.createElement('option');
-                                option.value = country.cca3; // Utilisez un identifiant unique pour la valeur
-                                option.textContent = country.name.common;
-                                selectElement.appendChild(option);
-                            });
-                        }
-
-                        // Appeler la fonction lors du chargement de la page
-                        loadNationalities();
-                    </script>
-
-
-
-                    <div class="col-md-5 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip11" class="form-label">Commune de Naissance</label>
                         <input type="text" class="form-control" id="validationTooltip16" asp-for="CommuneDeNaissance" required>
                         <div class="invalid-tooltip">
@@ -426,7 +396,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-3 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip12" class="form-label">Numéro de Téléphone</label>
                         <input type="text" class="form-control" id="validationTooltip17" asp-for="NumeroDeTelephone" required>
                         <div class="invalid-tooltip">
@@ -434,7 +404,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip13" class="form-label">Profession</label>
                         <input type="text" class="form-control" id="validationTooltip18" asp-for="Profession" required>
                         <div class="invalid-tooltip">
@@ -442,7 +412,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-5 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip14" class="form-label">Domicile</label>
                         <input type="text" class="form-control" id="validationTooltip19" asp-for="Domicile" required>
                         <div class="invalid-tooltip">
@@ -450,13 +420,21 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 position-relative">
-                        <label for="validationTooltip15" class="form-label">Type de Pièce</label>
-                        <input type="text" class="form-control" id="validationTooltip20" asp-for="TypeDepiece" required>
-                        <div class="invalid-tooltip">
-                            Please provide a valid type of document.
-                        </div>
+                  
+                <div class="col-md-4 position-relative">
+                    <label for="validationTooltip20" class="form-label">Type de Pièce</label>
+                    <select class="form-control select2 select2-danger" id="validationTooltip20" name="SituationMatrimoniale" required asp-for="TypeDepiece">
+                        <option selected disabled value="">Choose..</option>
+                        <option value="1">CARTE DE NATIONNALITE</option>
+                        <option value="2">PERMIS DE CONDUITE</option>
+                        <option value="2">PASSEPORT</option>
+                    </select>
+                    <div class="invalid-tooltip">
+                        Please provide a valid type of document.
                     </div>
+                </div>
+
+
 
                     <div class="col-md-4 position-relative">
                         <label for="validationTooltip16" class="form-label">Numéro de Pièce</label>
@@ -466,7 +444,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-7 position-relative">
+                    <div class="col-md-4 position-relative">
                         <label for="validationTooltip17" class="form-label">Date d'Édition</label>
                         <input type="date" class="form-control" id="validationTooltip22" asp-for="DateEdition" required>
                         <div class="invalid-tooltip">
@@ -474,13 +452,13 @@
                         </div>
                     </div>
 
-                    <div class="col-12">
-                        <div class="text-end">
-                            <button class="btn btn-primary" type="submit">Suivant</button>
+                    <div class="col-12 mt-3">
+                                    <div class="center-text">
+                            <button class="btn btn-success" type="submit">Suivant</button>
                         </div>
                     </div>
                 </div>
-
+            </div>
             </form>
         </div>
         <!-- /.container-fluid -->

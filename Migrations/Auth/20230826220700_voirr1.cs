@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace ActeAdministratif.Migrations.Auth
 {
-    public partial class NewContext : Migration
+    public partial class voirr1 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

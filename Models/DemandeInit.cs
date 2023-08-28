@@ -25,6 +25,7 @@ namespace ActeAdministratif.Models
         [ForeignKey("EnregistrerId")]
         public Enregistrer? Enregistrer { get; set; }
 
+        public int status { get; set; } = 0;
         public DemandeInit()
         {
             // Vous pouvez également initialiser d'autres propriétés ici si nécessaire

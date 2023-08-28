@@ -51,7 +51,8 @@ namespace ActeAdministratif.Controllers
                 return null;
         }
 
-
+     
+        
 
 
 
@@ -93,8 +94,17 @@ namespace ActeAdministratif.Controllers
         }
 
         // GET: Documents/Create
+        //Recuperer donner de la Bd:
         public IActionResult Create()
         {
+            // Récupérez les données des pays depuis votre base de données
+            List<Country> countries = _context.T_CONF_COUNTRY.ToList();
+
+            // Vous pouvez trier, filtrer ou manipuler les données ici si nécessaire
+            ViewBag.Countries = countries;
+            // Transmettez les données des pays à la vue
+            ViewBag.Countries = countries;
+
             return View();
         }
 
@@ -172,6 +182,32 @@ namespace ActeAdministratif.Controllers
             }
             return View(document);
         }
+
+        // Edit page for 2
+        public async Task<IActionResult> Editcmp(string id)
+        {
+            var enregistrement = await _context.Enregistrer
+        .Include(e => e.Document)
+        .Include(e => e.Filiation)
+        .FirstOrDefaultAsync(e => e.Id == id);
+
+            if (enregistrement == null)
+            {
+                return NotFound(); // Gérez le cas où l'enregistrement n'est pas trouvé
+            }
+
+            return View(enregistrement);
+        }
+
+        // POST: Filiations/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        //public async Task<IActionResult> Editcmp(string id, [Bind("id,NomPere,PrenomPere,DateDenaissancePere,LieuxNaissancePere,NomMere,PrenomMere,DateDenaissanceMere,LieuxNaissanceMere,DocumentId")] Filiation filiation)
+        //{
+            
+        //}
 
         // GET: Documents/Delete/5
         public async Task<IActionResult> Delete(string id)

@@ -14,7 +14,7 @@ namespace ActeAdministratif.Data
         {
         }
 
-        public DbSet<ActeAdministratif.Models.Document> Document { get; set; } = default!;
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -26,8 +26,10 @@ namespace ActeAdministratif.Data
         }
 
         public DbSet<ActeAdministratif.Models.Filiation>? Filiation { get; set; } = default!;
+        public DbSet<ActeAdministratif.Models.Document> Document { get; set; } = default!;
         public DbSet<ActeAdministratif.Models.Enregistrer>? Enregistrer { get; set; } = default!;
         public DbSet<ActeAdministratif.Models.DemandeInit>? DemandeInit { get; set; } = default!;
-        
+        public DbSet<ActeAdministratif.Models.Country>? T_CONF_COUNTRY { get; set; } = default!;
+
     }
 }

@@ -3,20 +3,33 @@ using FastReport.Export.PdfSimple;
 using FastReport;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using ActeAdministratif.Data;
+using Microsoft.EntityFrameworkCore;
+using ActeAdministratif.Areas.Identity.Data;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+
+
 
 namespace ActeAdministratif.Controllers
 {
+    [Authorize]
     public class HomeController : Controller
     {
+        private readonly SNDIContext _context;
         private readonly ILogger<HomeController> _logger;
+        private readonly UserManager<SNDIUser> _userManager;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(SNDIContext context, ILogger<HomeController> logger, UserManager<SNDIUser> userManager)
         {
             _logger = logger;
+            this._userManager = userManager;
+            _context = context;
         }
 
         public IActionResult Index()
         {
+            ViewData["UserID"] = _userManager.GetUserId(this.User);
             return View();
         }
 

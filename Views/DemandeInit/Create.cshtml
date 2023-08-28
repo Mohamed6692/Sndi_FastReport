@@ -77,9 +77,10 @@
 <body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
 
+   
         <!-- Preloader -->
         <div class="preloader flex-column justify-content-center align-items-center">
-            <img class="animation__shake" src="~/img/ActeAdministratif.jpg" alt="SNDI" height="60" width="60">
+            <img class="animation__shake" src="~/img/Sndi.jpg" alt="" height="60" width="60">
         </div>
 
         <!-- Navbar -->
@@ -97,7 +98,7 @@
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                </li>
+                </li>    
             </ul>
 
             <!-- Right navbar links -->
@@ -122,7 +123,7 @@
                             </div>
                         </form>
                     </div>
-                </li>
+                </li>   
             </ul>
 
         </nav>
@@ -140,10 +141,10 @@
                 <!-- Sidebar user panel (optional) -->
                 <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                     <div class="image">
-                        <img src="/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+                        <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
                     </div>
                     <div class="info">
-                        <a href="#" class="d-block">ID User</a>
+                        <a href="#" class="d-block">ID User:</a>
                     </div>
                 </div>
 
@@ -174,23 +175,34 @@
                             </a>
                             <ul class="nav nav-treeview">
                                 <li class="nav-item">
-                                    <a href="./index.html" class="nav-link active">
+                                    <a class="nav-link"asp-area="" asp-controller="Admin"
+                                    asp-action="Create">
                                         <i class="far fa-circle nav-icon"></i>
                                         <p>Gestion des operateurs de saisie</p>
+                                        Register
                                     </a>
                                 </li>
+                               
                                 <li class="nav-item">
-                                    <a href="" class="nav-link">
+                                    <a class="nav-link" asp-area="" asp-controller="DemandeInit"
+                                       asp-action="Index">
                                         <i class="far fa-circle nav-icon"></i>
-
                                         <p>Demande initier</p>
                                     </a>
                                 </li>
+
                                 <li class="nav-item">
                                     <a class="nav-link" asp-area="" asp-controller="Documents"
-                                       asp-action="Index">
-                                        <i class="far fa-circle nav-icon"></i>
+                                    asp-action="Index">
+                                     <i class="far fa-circle nav-icon"></i>
                                         <p>Enregister demandeur</p>
+                                     </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-area="" asp-controller=""
+                                       asp-action="">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Gerer mon compte</p>
                                     </a>
                                 </li>
                             </ul>
@@ -204,7 +216,7 @@
                                 </p>
                             </a>
                         </li>
-
+                        
                     </ul>
                 </nav>
                 <!-- /.sidebar-menu -->
@@ -257,7 +269,7 @@
                                     <input type="hidden" asp-for="EnregistrerId" />
                                 <div class="form-group col-md-4">
                                     <label for="validationTooltip02" class="form-label">Montant (XOF)</label>
-                                    <input type="number" step="0.01" class="form-control" id="validationTooltip02" asp-for="Montant" required readonly value="2500 CFA">
+                                    <input type="number" step="0.01" class="form-control" id="validationTooltip02" asp-for="Montant" required readonly value="2500">
                                     <div class="valid-tooltip">
                                         Looks good!
                                     </div>
@@ -356,95 +368,6 @@
 
 
 
-
-
-
-
-
-
-<!-- SELECT2 EXAMPLE -->
-<div class="card card-default">
-    <div class="card-header">
-        <h3 class="card-title">Select2 (Bootstrap4 Theme)</h3>
-
-        <div class="card-tools">
-            <button type="button" class="btn btn-tool" data-card-widget="collapse">
-                <i class="fas fa-minus"></i>
-            </button>
-            <button type="button" class="btn btn-tool" data-card-widget="remove">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Minimal</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                </div>
-                <!-- /.form-group -->
-                <div class="form-group">
-                    <label>Disabled</label>
-                    <select class="form-control select2bs4" disabled="disabled" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                </div>
-                <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-            <div class="col-md-6">
-                <div class="form-group">
-                    <label>Multiple</label>
-                    <select class="select2bs4" multiple="multiple" data-placeholder="Select a State"
-                            style="width: 100%;">
-                        <option>Alabama</option>
-                        <option>Alaska</option>
-                        <option>California</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                </div>
-                <!-- /.form-group -->
-                <div class="form-group">
-                    <label>Disabled Result</label>
-                    <select class="form-control select2bs4" style="width: 100%;">
-                        <option selected="selected">Alabama</option>
-                        <option>Alaska</option>
-                        <option disabled="disabled">California (disabled)</option>
-                        <option>Delaware</option>
-                        <option>Tennessee</option>
-                        <option>Texas</option>
-                        <option>Washington</option>
-                    </select>
-                </div>
-                <!-- /.form-group -->
-            </div>
-            <!-- /.col -->
-        </div>
-        <!-- /.row -->
-    </div>
-    <!-- /.card-body -->
-    
-</div>
-<!-- /.card -->
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");

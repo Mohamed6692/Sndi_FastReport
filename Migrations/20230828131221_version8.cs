@@ -2,9 +2,9 @@
 
 #nullable disable
 
-namespace ActeAdministratif.Migrations.Auth
+namespace ActeAdministratif.Migrations
 {
-    public partial class NewContext2 : Migration
+    public partial class version8 : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

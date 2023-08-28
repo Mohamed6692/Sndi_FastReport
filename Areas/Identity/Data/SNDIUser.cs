@@ -21,5 +21,11 @@ public class SNDIUser : IdentityUser
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public string? PassGenerate { get; set; }
+
+    [PersonalData]
+    [Column(TypeName = "nvarchar(100)")]
+    public int? Role { get; set; }
+
+
 }
 
