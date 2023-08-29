@@ -11,7 +11,7 @@ namespace ActeAdministratif.Models
 
         public string? TypeActAdmin { get; set; }
 
-        public float ? Montant { get; set; }
+        public string ? Montant { get; set; }
 
         public string? NumeroRecuPaiem { get; set; }
 

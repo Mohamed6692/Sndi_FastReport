@@ -3,9 +3,12 @@
 @{
     ViewData["Title"] = "Détails";
 }
+@{
+    Layout = "_Layout"; // Disable the layout for this specific page
+}
 
-<!DOCTYPE html>
-<html>
+
+
 <head>
     <title>@ViewData["Title"]</title>
     <!-- Ajoutez ici les liens vers les fichiers CSS de Bootstrap -->
@@ -26,7 +29,7 @@
         }
     </style>
 </head>
-<body>
+
 
     <div class="container mt-5 mb-5">
         <h3 class="mb-4">Détails de la Filiation etape 2/2</h3>
@@ -89,9 +92,5 @@
         </div>
     </div>
 
-    <!-- Ajoutez ici les liens vers les fichiers JavaScript de Bootstrap -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-</body>
-</html>
+  
+    

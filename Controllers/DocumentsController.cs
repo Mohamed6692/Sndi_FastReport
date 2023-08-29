@@ -74,6 +74,17 @@ namespace ActeAdministratif.Controllers
             return View(enregistrements);
         }
 
+        //Recherche
+        public IActionResult Search(string searchNumero)
+        {
+            var enregistrements = _context.Enregistrer
+                .Include(e => e.Document) // Charge l'objet Document associé
+                .Include(e => e.Filiation) // Charge l'objet Filiation associé
+                .Where(e => e.Document.Numero.Contains(searchNumero))  // Utilisez "==" pour une correspondance exacte
+                .ToList();
+            return View(enregistrements);
+        }
+
 
         // GET: Documents/Details/5
         public async Task<IActionResult> Details(string id)

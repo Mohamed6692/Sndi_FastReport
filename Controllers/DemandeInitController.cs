@@ -201,6 +201,10 @@ namespace ActeAdministratif.Controllers
 
             if (demande != null)
             {
+                demande.status = 1;
+                // Enregistrez les modifications dans la base de données
+                _context.SaveChanges();
+
                 report.Load(path);
                 report.SetParameterValue("DemandeId", id);
 

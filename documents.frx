@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Report ScriptLanguage="CSharp" ReportInfo.Created="08/22/2023 16:13:12" ReportInfo.Modified="08/28/2023 11:50:41" ReportInfo.CreatorVersion="2023.2.0.0">
+<Report ScriptLanguage="CSharp" ReportInfo.Created="08/22/2023 16:13:12" ReportInfo.Modified="08/29/2023 16:54:27" ReportInfo.CreatorVersion="2023.2.0.0">
   <Dictionary>
-    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqM7gJFg/iaLrqMhRfGy5lGhnYaxUIVSmT/LqyeEFwxbx/l8ckezr84YIzzyPO54/uHn8rGJ8CluMVQLI2ry7uM//a1dkNJ+wtCHQw4MATXw5vUsH4ir1lhEPNByBiT66BGl4vDIe/4xtvUTQjjuf6VVFMTxaa2SRXBvzhOrcU5mB1e9WjC2mEd5SLIVYiKo4gQyvyDzOq+d8hrnJ14p+Vjw==">
+    <MsSqlDataConnection Name="Connection" ConnectionString="rijcmlqM7gJFg/iaLrqMhRfGy5lGhnYaxUIVSmT/LqyeEFwxbx/l8ckezr84YIzzyPO54/uHn8rGJ8CluMVQLI2ry7uM//a1dkNJ+wtCHQw4MATXw5vUsH4ir1lhEPNByBiT66BGl4vDIe/4xtvUTQjjuf6VVFMTxaa2SRXBvzhOrcU5mB1e9WjC2mEd5SLIVYiKo4gDsG2KDN8uavpoJjPtUfNBg==">
       <TableDataSource Name="RegroupeInfo2" DataType="System.Int32" Enabled="true" TableName="RegroupeInfo2">
         <Column Name="DemandeInitId" DataType="System.String"/>
         <Column Name="DateRequete" DataType="System.DateTime"/>
@@ -71,7 +71,7 @@
       <TextObject Name="Text38" Left="595.35" Top="292.95" Width="37.8" Height="18.9" Text="du" Font="Arial, 8pt"/>
       <TextObject Name="Text39" Left="595.35" Top="321.3" Width="160.65" Height="18.9" Text="[RegroupeInfo2.LieuxNaissance]" Font="Arial, 8pt"/>
       <TextObject Name="Text40" Left="614.25" Top="349.65" Width="94.5" Height="18.9" Text="Applicable" Font="Arial, 8pt"/>
-      <TextObject Name="Text41" Left="75.6" Top="85.05" Width="151.2" Height="18.9" Text="[RegroupeInfo2.LieuxEtablissement]" Font="Arial, 8pt"/>
+      <TextObject Name="Text41" Left="103.95" Top="85.05" Width="94.5" Height="18.9" Text="YOPOUGON" Font="Arial, 7pt"/>
     </DataBand>
   </ReportPage>
   <ReportPage Name="Page2" Watermark.Font="Arial, 60pt">

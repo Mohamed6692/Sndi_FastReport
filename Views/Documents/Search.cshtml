@@ -1,5 +1,4 @@
-﻿@*@model IEnumerable<ActeAdministratif.Models.Document>*@
-@model List<ActeAdministratif.Models.Enregistrer>
+﻿@model List<ActeAdministratif.Models.Enregistrer>
 
 @{
     ViewData["Title"] = "Index";
@@ -15,15 +14,13 @@
                 <div class="container-fluid">
                     <div class="row mb-2">
                         <div class="col-sm-6">
-                            <h1 class="m-0">Liste des demandeurs</h1>
+                            <h1 class="m-0">Resultat trouvé</h1>
                         </div><!-- /.col -->
                         <div class="col-sm-6">
-                            <form asp-action="Search" method="get" class="d-flex enctype="multipart/form-data">
-                                <input class="form-control me-1" name="searchNumero" type="search" placeholder="Entrez le numero rechercher" aria-label="Search">
-                                <button class="btn btn-success" type="submit">Search</button>
-                            </form>
                             <ol class="breadcrumb float-sm-right">
-       
+                                <li><a asp-controller="Documents"
+                                   asp-action="Index" class="btn btn-danger btn-sm"><i class="fas fa-arrow-left"></i>Retour</a>
+                                </li>
                                 <li class="breadcrumb-item active">Dashboard v1</li>
                             </ol>
                         </div><!-- /.col -->
@@ -98,13 +95,9 @@
                         <!-- ./col -->
                     </div>
                 </div><!-- /.container-fluid -->
-                <p>
-                    <a asp-action="Create" class="btn btn-success btn-sm">Nouvelle demande</a>
+              
+                <div>
 
-                </p>
-                <div >
-
-                    <!-- Main content -->
                     @foreach (var enregistrement in Model)
                     {
                         <section class="content">
@@ -137,22 +130,12 @@
                                                                     <i class="fas fa-envelope mr-2"></i> Initier la demande
                                                                     <span class="float-right text-muted text-sm">3 mins</span>
                                                                 </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a href="#" class="dropdown-item">
-                                                                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                                                                    <span class="float-right text-muted text-sm">12 hours</span>
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a href="#" class="dropdown-item">
-                                                                    <i class="fas fa-file mr-2"></i> 3 new reports
-                                                                    <span class="float-right text-muted text-sm">2 days</span>
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                           
+                                                                
                                                             </div>
                                                         </li>
                                                     </button>
-                                                   
+
 
 
                                                 </div>
@@ -165,7 +148,7 @@
                                                         <td>Circonscription :@enregistrement.Document?.Circonscription</td>
                                                         <td>LieuxEtablissement:@enregistrement.Document?.LieuxEtablissement</td>
                                                         <td>NomDeFamille:   @enregistrement.Document?.NomDeFamille</td>
-                                                         
+
                                                     </tr>
                                                     <tr>
                                                         <td> NomDeJeuneFille:@enregistrement.Document?.NomDeJeuneFille</td>
@@ -177,8 +160,8 @@
                                                     </tr>
 
                                                     <tr>
-                                                        
-                                                        
+
+
                                                         <td>NombreEnfant:  @enregistrement.Document?.NombreEnfant</td>
                                                         <td>DateDenaissance: @enregistrement.Document?.DateDenaissance</td>
                                                         <td>LieuxNaissance:@enregistrement.Document?.LieuxNaissance</td>
@@ -194,7 +177,7 @@
                                                         <td> NumeroDePiece: @enregistrement.Document?.NumeroDePiece</td>
                                                         <td>DateEdition:@enregistrement.Document?.DateEdition</td>
                                                     </tr>
-                                                    
+
                                                     <tr>
                                                         <td>NomPere: @enregistrement.Filiation?.NomPere</td>
                                                         <td>PrenomPere: @enregistrement.Filiation?.PrenomPere</td>
@@ -202,7 +185,7 @@
                                                         <td>LieuxNaissancePere:@enregistrement.Filiation?.LieuxNaissancePere</td>
                                                         <td>TypeDePiecesPere:  @enregistrement.Filiation?.TypeDePiecesPere</td>
                                                         <td>NumeroPiecePere: @enregistrement.Filiation?.NumeroPiecePere</td>
-                                                        
+
                                                     </tr>
                                                     <tr>
                                                         <td> DateeditionPere:@enregistrement.Filiation?.DateeditionPere</td>
@@ -212,7 +195,7 @@
                                                         <td>DateDenaissanceMere:@enregistrement.Filiation?.DateDenaissanceMere</td>
                                                     </tr>
 
-                                                    <tr>   
+                                                    <tr>
                                                         <td> LieuxNaissanceMere:@enregistrement.Filiation?.LieuxNaissanceMere</td>
                                                         <td>TypeDePiecesMere   : @enregistrement.Filiation?.TypeDePiecesMere</td>
                                                         <td>NumeroPieceMere: @enregistrement.Filiation?.NumeroPieceMere</td>
@@ -221,10 +204,10 @@
                                                     </tr>
                                                     <tr>
                                                         <td>
-                                                           <a asp-action="Editcmp" asp-route-id="@enregistrement.Id"> <i class="fas fa-edit"></i>Edit</a> |
+                                                            <a asp-action="Editcmp" asp-route-id="@enregistrement.Id"> <i class="fas fa-edit">Edit</i></a> |
                                                             <a asp-action="Details" asp-route-id=""><i class="fas fa-inbox text-warning"></i> Details</a> |
                                                             <a asp-action="Delete" asp-route-id=""><i class="fas fa-trash text-danger"></i>Delete</a>
-                
+
                                                         </td>
                                                     </tr>
                                                 </table>
@@ -241,16 +224,12 @@
                             </div>
                         </section>
                     }
-
                     <!-- /.content -->
                 </div>
             </section>
 
-            
-            
+
+
+
             <!-- /.content -->
         </div>
-        
-       
-
-
