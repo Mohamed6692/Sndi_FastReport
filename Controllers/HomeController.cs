@@ -29,14 +29,69 @@ namespace ActeAdministratif.Controllers
 
         public IActionResult Index()
         {
-            ViewData["UserID"] = _userManager.GetUserId(this.User);
-            return View();
+            var enregistrements = _context.Enregistrer
+                .Include(e => e.Document) // Charge l'objet Document associé
+                .Include(e => e.Filiation) // Charge l'objet Filiation associé
+                .ToList();
+
+            int nombreEnregistrements = enregistrements.Count; // Obtenez le nombre d'enregistrements
+
+            ViewBag.NombreEnregistrements = nombreEnregistrements;
+
+
+            // information demande
+            //Status 0
+            var informationsDemandes = _context.DemandeInit
+               .Include(d => d.Enregistrer)
+                   .ThenInclude(e => e.Document)
+               .Include(d => d.Enregistrer)
+                   .ThenInclude(e => e.Filiation)
+               .Where(d => d.status == 0) // Filtrez les DemandesInit avec Status égal à 0
+               .ToList();
+
+            int nombreInformationsDemandes = informationsDemandes.Count; // Obtenez le nombre d'InformationDemande
+
+            //Status 1
+                    var informationsDemandes1 = _context.DemandeInit
+            .Include(d => d.Enregistrer)
+                .ThenInclude(e => e.Document)
+            .Include(d => d.Enregistrer)
+                .ThenInclude(e => e.Filiation)
+            .Where(d => d.status == 1) // Filtrez les DemandesInit avec Status égal à 0
+            .ToList();
+
+            int nombreInformationsDemandes1 = informationsDemandes1.Count; // Obtenez le nombre d'InformationDemande
+
+            ViewBag.NombreInformationsDemandes1 = nombreInformationsDemandes1; // Ajoutez-le à la ViewBag pour l'afficher dans la vue
+
+
+            ViewBag.NombreInformationsDemandes = nombreInformationsDemandes;
+            return View(enregistrements);
         }
+
+
+       
 
         public IActionResult Privacy()
         {
             return View();
         }
+
+
+
+
+        // GET: Documents second
+        //public IActionResult Index()
+        //{
+        //    var enregistrements = _context.Enregistrer
+        //        .Include(e => e.Document) // Charge l'objet Document associé
+        //        .Include(e => e.Filiation) // Charge l'objet Filiation associé
+        //        .ToList();
+        //    return View(enregistrements);
+        //}
+
+
+
 
         //[ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         //public IActionResult Error()

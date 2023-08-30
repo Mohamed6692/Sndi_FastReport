@@ -20,5 +20,8 @@ namespace Identity.Models
         public string? PassGenerate { get; set; }
 
 
+  
+
+
     }
 }

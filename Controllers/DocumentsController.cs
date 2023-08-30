@@ -156,6 +156,14 @@ namespace ActeAdministratif.Controllers
             {
                 return NotFound();
             }
+
+            List<Country> countries = _context.T_CONF_COUNTRY.ToList();
+
+            // Vous pouvez trier, filtrer ou manipuler les données ici si nécessaire
+            ViewBag.Countries = countries;
+            // Transmettez les données des pays à la vue
+            ViewBag.Countries = countries;
+
             return View(document);
         }
 

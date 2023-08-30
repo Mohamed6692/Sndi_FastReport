@@ -30,15 +30,7 @@
             <section class="content-header">
                 <div class="container-fluid">
                     <div class="row mb-2">
-                        <div class="col-sm-6">
-                           
-                        </div>
-                        <div class="col-sm-6">
-                            <ol class="breadcrumb float-sm-right">
-                                <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                <li class="breadcrumb-item active">Advanced Form</li>
-                            </ol>
-                        </div>
+                        <
                     </div>
                 </div>
             </section>
@@ -153,7 +145,7 @@
 
                         <div class="col-md-4 position-relative">
                             <label for="validationTooltip14" class="form-label">Pays de Naissance</label>
-                            <select class="form-control select2 select2-danger" id="validationTooltip14" asp-for="PaysNaissance" required>
+                            <select class="form-control select2 select2-danger" id="validationTooltip14" name="PaysNaissance" required>
                                 <option value="" selected disabled>_____</option>
                                 @foreach (var country in ViewBag.Countries)
                                 {
@@ -235,7 +227,7 @@
 
 
 <div>
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Index">Retour a la liste</a>
 </div>
       
 

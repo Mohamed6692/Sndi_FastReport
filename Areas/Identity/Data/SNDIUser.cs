@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using Microsoft.AspNetCore.Identity;
 
 namespace ActeAdministratif.Areas.Identity.Data;
@@ -25,7 +27,5 @@ public class SNDIUser : IdentityUser
     [PersonalData]
     [Column(TypeName = "nvarchar(100)")]
     public int? Role { get; set; }
-
-
 }
 

@@ -12,6 +12,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>SNDI | Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
     <!-- Google Font: Source Sans Pro -->
     <link rel= "stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -70,7 +71,7 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Accueil</a>
                 </li>
             </ul>
 
@@ -78,10 +79,10 @@
             <ul class="navbar-nav ml-auto">
                 <!-- Navbar Search -->
                 <li class="nav-item">
-                    <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+                   @* <a class="nav-link" data-widget="navbar-search" href="#" role="button">
                         <i class="fas fa-search"></i>
-                    </a>
-                    <div class="navbar-search-block">
+                    </a>*@
+                   @* <div class="navbar-search-block">
                         <form class="form-inline">
                             <div class="input-group input-group-sm">
                                 <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
@@ -95,7 +96,7 @@
                                 </div>
                             </div>
                         </form>
-                    </div>
+                    </div>*@
                 </li>
             </ul>
             <partial name="_LoginPartial.cshtml" />
@@ -104,7 +105,7 @@
         <!-- Main Sidebar Container -->
         <aside class="main-sidebar sidebar-dark-primary elevation-4">
             <!-- Brand Logo -->
-            <a href="index3.html" class="brand-link">
+            <a  asp-area="" asp-controller="Home" asp-action="Index" class="brand-link">
                 <img src="~/img/Sndi.jpg" alt="Sndi Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
                 <span class="brand-text font-weight-light">SNDI</span>
             </a>
@@ -119,7 +120,7 @@
                     <div class="info">
                         @if (SignInManager.IsSignedIn(User))
                         {
-                            <a href="#" class="d-block">ID User:@UserManager.GetUserName(User)!</a>
+                            <a href="#" class="d-block">Email:@UserManager.GetUserName(User)!</a>
                         }
                         @*<a class="d-block" asp-area="" asp-controller="Admin" asp-action="Logout">Déconnexion</a>*@
 
@@ -127,7 +128,7 @@
                 </div>
 
                 <!-- SidebarSearch Form -->
-                <div class="form-inline">
+            @*    <div class="form-inline">
                     <div class="input-group" data-widget="sidebar-search">
                         <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
                         <div class="input-group-append">
@@ -137,55 +138,56 @@
                         </div>
                     </div>
                 </div>
-
+*@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                         <!-- Add icons to the links using the .nav-icon class
                              with font-awesome or any other icon font library -->
-                        <li class="nav-item menu-open">
+                        <li class="nav-item menu-close">
                             <a href="#" class="nav-link active">
                                 <i class="nav-icon fas fa-tachometer-alt"></i>
                                 <p>
-                                    Dashboard
+                                    Operateur de saisie
                                     <i class="right fas fa-angle-left"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Admin"
-                                       asp-action="">
-                                        <i class="fa fa-users" aria-hidden="true"></i>
-                                        Opérateurs de Saisie
-                                    </a>
-                                </li>
-                                @*si a 1 supper admin*@
+                                        <li class="nav-item">
+                                            <a class="nav-link" asp-area="" asp-controller="Admin"
+                                               asp-action="">
+                                                <i class="fa fa-users" aria-hidden="true"></i>
+                                               Gerer les opérateurs de Saisie
+                                            </a>
+                                        </li>
+                                        @*si a 1 supper admin*@
                                 
-                                    <li class="nav-item">
-                                        <a class="nav-link" asp-area="" asp-controller="Admin"
-                                           asp-action="ChangePassword">
-                                            <i class="fas fa-key"></i>
-                                            <p>Set mon password</p>
-                                        </a>
-                                    </li>
+                                         <li class="nav-item">
+                                              <a class="nav-link" asp-area="" asp-controller="Admin"
+                                                   asp-action="ChangePassword">
+                                                    <i class="fas fa-key"></i>
+                                                    <p>modifier mon password</p>
+                                               </a>
+                                          </li>
                               
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="DemandeInit"
-                                       asp-action="Index">
-                                        <i class="fa fa-file-text" aria-hidden="true"></i>
-                                        <p>Demande initier</p>
-                                    </a>
-                                </li>
-
-                                <li class="nav-item">
-                                    <a class="nav-link" asp-area="" asp-controller="Documents"
-                                       asp-action="Index">
-                                        <i class="fa fa-id-badge" aria-hidden="true"></i>
-                                        Enregister demandeur
-                                    </a>
-                                </li>
-
                             </ul>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="DemandeInit"
+                                   asp-action="Index">
+                                    <i class="fa fa-file-text" aria-hidden="true"></i>
+                                    Nouvelle demande
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" asp-area="" asp-controller="Documents"
+                                   asp-action="Index">
+                                    <i class="fa fa-id-badge" aria-hidden="true"></i>
+                                    Nouveau demandeur
+                                </a>
+                            </li>
+                            
                         </li>
 
 

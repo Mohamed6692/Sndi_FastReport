@@ -55,12 +55,7 @@
                 <div class="col-sm-6">
                     <h1>Etape 1/2</h1>
                 </div>
-                <div class="col-sm-6">
-                    <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">Advanced Form</li>
-                    </ol>
-                </div>
+                
             </div>
         </div><!-- /.container-fluid -->
     </section>
@@ -72,17 +67,17 @@
                 <h4>Saisie des informations sur le demandeur</h4>
             </div>
             <hr />
-            <form asp-action="Create" class="row g-3 needs-validation uniform-border" novalidate enctype="multipart/form-data">
+            <form asp-action="Create" class="row g-3 mt-4 needs-validation uniform-border" novalidate enctype="multipart/form-data">
                <div class="container-fluid">
                 <div class="row g-3 needs-validation">
-                    <div class="col-md-4 position-relative">
+                    <div class="col-md-3 position-relative">
                         <label for="validationTooltip01" class="form-label">Numero</label>
                         <input type="text" class="form-control" id="validationTooltip01" asp-for="Numero" required>
                         <div class="valid-tooltip">
                             Looks good!
                         </div>
                     </div>
-                    <div class="col-md-4 position-relative">
+                    <div class="col-md-2 position-relative">
                         <label for="validationTooltip02" class="form-label">Du</label>
                         <input type="date" class="form-control" id="validationTooltip02" asp-for="Date" required>
                         <div class="valid-tooltip">
@@ -90,7 +85,7 @@
                         </div>
                     </div>
 
-                    <div class="col-md-4 position-relative">
+                    <div class="col-md-3 position-relative">
                         <label for="validationTooltipUsername" class="form-label">Circonscription</label>
                         <div class="input-group has-validation">
                             <input type="text" class="form-control" id="validationTooltipUsername3" asp-for="Circonscription" required>
@@ -104,8 +99,8 @@
                         <label for="validationTooltip04" class="form-label">Centre d'etablissement</label>
                         <select class="form-control select2 select2-danger" id="validationTooltip04" name="Sexe" required asp-for="LieuxEtablissement" data-dropdown-css-class="select2-danger">
                             <option selected disabled value="">Choisir un genre.</option>
-                            <option value="1">MAIRIE</option>
-                            <option value="2">PREFECTURE</option>
+                                <option value="MAIRIE">MAIRIE</option>
+                                <option value="PREFECTURE">PREFECTURE</option>
                         </select>
                         <div class="invalid-tooltip">
                             Please provide a valid lieu d'établissement.
@@ -145,8 +140,8 @@
                         <label for="validationTooltip04" class="form-label">Sexe</label>
                         <select class="form-control select2 select2-danger" id="validationTooltip09" name="Sexe" required asp-for="Sexe" data-dropdown-css-class="select2-danger">
                             <option selected disabled value="">Choisir un genre.</option>
-                            <option value="1">HOMME</option>
-                            <option value="2">FEMME</option>
+                                <option value="HOMME">HOMME</option>
+                                <option value="FEMME">FEMME</option>
                         </select>
                         <div class="invalid-tooltip">
                             Please select a valid gender.
@@ -156,10 +151,10 @@
 
                     <div class="col-md-4 position-relative">
                         <label for="validationTooltip05" class="form-label">Situation Matrimoniale</label>
-                                <select class="form-control select2 select2-danger" id="validationTooltip10" name="SituationMatrimoniale" required asp-for="SituationMatrimoniale">
+                            <select class="form-control select2 select2-danger" id="validationTooltip10" name="SituationMatrimoniale" required asp-for="SituationMatrimoniale">
                             <option selected disabled value="">Choose..</option>
                             <option value="CELIBATAIRE">CELIBATAIRE</option>
-                                        <option value="MARIE">MARIE</option>
+                            <option value="MARIE">MARIE</option>
                         </select>
                         <div class="invalid-tooltip">
                             Please select a valid marital status.
@@ -258,9 +253,9 @@
                     <label for="validationTooltip20" class="form-label">Type de Pièce</label>
                     <select class="form-control select2 select2-danger" id="validationTooltip20" name="SituationMatrimoniale" required asp-for="TypeDepiece">
                         <option selected disabled value="">Choose..</option>
-                        <option value="1">CARTE DE NATIONNALITE</option>
-                        <option value="2">PERMIS DE CONDUITE</option>
-                        <option value="2">PASSEPORT</option>
+                                <option value="CARTE DE NATIONNALITE">CARTE DE NATIONNALITE</option>
+                                <option value="PERMIS DE CONDUITE">PERMIS DE CONDUITE</option>
+                                <option value="PASSEPORT">PASSEPORT</option>
                     </select>
                     <div class="invalid-tooltip">
                         Please provide a valid type of document.
@@ -287,7 +282,7 @@
 
                     <div class="col-12 mt-3">
                                     <div class="center-text">
-                            <button class="btn btn-success" type="submit">Suivant</button>
+                                <button id="bouton-suivant" class="btn btn-success" type="submit">Suivant</button>
                         </div>
                     </div>
                 </div>
@@ -298,4 +293,30 @@
     </section>
     <!-- /.content -->
 </div>
-       
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // Sélectionnez le bouton "Suivant" par son ID
+        const boutonSuivant = document.getElementById("bouton-suivant");
+
+        // Ajoutez un gestionnaire d'événements au clic du bouton
+        boutonSuivant.addEventListener("click", function (e) {
+            e.preventDefault(); // Empêchez la soumission du formulaire par défaut
+
+            // Affichez la boîte de dialogue Swal
+            Swal.fire({
+                title: 'Good job!',
+                text: 'You clicked the button!',
+                icon: 'success',
+                showCancelButton: false,
+                confirmButtonText: 'Continue',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Soumettez le formulaire
+                    document.querySelector("form").submit();
+                }
+            });
+        });
+    });
+</script>
+

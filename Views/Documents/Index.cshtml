@@ -19,12 +19,11 @@
                         </div><!-- /.col -->
                         <div class="col-sm-6">
                             <form asp-action="Search" method="get" class="d-flex enctype="multipart/form-data">
-                                <input class="form-control me-1" name="searchNumero" type="search" placeholder="Entrez le numero rechercher" aria-label="Search">
-                                <button class="btn btn-success" type="submit">Search</button>
+                                <input class="form-control me-1" name="searchNumero" type="search" placeholder="Entrez le numero de recherche" aria-label="Search">
+                                <button class="btn btn-success" type="submit">Chercher</button>
                             </form>
                             <ol class="breadcrumb float-sm-right">
        
-                                <li class="breadcrumb-item active">Dashboard v1</li>
                             </ol>
                         </div><!-- /.col -->
                     </div><!-- /.row -->
@@ -33,7 +32,7 @@
             <!-- /.content-header -->
             <!-- Main content -->
             <section class="content">
-                <div class="container-fluid">
+                @*<div class="container-fluid">
                     <!-- Small boxes (Stat box) -->
                     <div class="row">
                         <div class="col-lg-3 col-6">
@@ -97,9 +96,9 @@
                         </div>
                         <!-- ./col -->
                     </div>
-                </div><!-- /.container-fluid -->
+                </div><!-- /.container-fluid -->*@
                 <p>
-                    <a asp-action="Create" class="btn btn-success btn-sm">Nouvelle demande</a>
+                    <a asp-action="Create" class="btn btn-success btn-sm">Nouveau demandeur</a>
 
                 </p>
                 <div >
@@ -114,41 +113,39 @@
                                         <!-- Default box -->
                                         <div class="card">
                                             <div class="card-header">
-                                                <h3 class="card-title">  @Html.DisplayNameFor(model => enregistrement.Document.Numero) :@Html.DisplayFor(modelItem => enregistrement.Document.Numero)</h3>
+                                        <h3 class="card-title">
+                                            @Html.DisplayNameFor(model => enregistrement.Document.Numero) : @Html.DisplayFor(modelItem => enregistrement.Document.Numero)
+                                            &nbsp;/&nbsp; <!-- Ajoutez un espace ici -->
+                                            Nom de famille: @enregistrement.Document?.NomDeFamille
+                                            /&nbsp;
+                                            Prenom:  @enregistrement.Document?.Prenom
+                                        </h3>
+
 
                                                 <div class="card-tools">
                                                     <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                                                        <i class="fas fa-minus"></i>
-                                                    </button>
+
+                                                <a data-toggle="tooltip" data-placement="top" title="Details" asp-action="Details" asp-route-id=""><i class="fa fa-level-down text-success" aria-hidden="true"></i> </a>
+                                            </button>
 
 
                                                     <button type="button" class="btn btn-tool" data-card-widget="" title="Action">
                                                         <!-- Notifications Dropdown Menu -->
                                                         <li class="nav-item dropdown">
                                                             <a class="nav-link" data-toggle="dropdown" href="#">
-                                                                <i class="far fa-bell"></i>
-                                                                <span class="badge badge-warning navbar-badge">15</span>
-                                                            </a>
-                                                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-                                                                <span class="dropdown-item dropdown-header">15 Notifications</span>
-                                                                <div class="dropdown-divider"></div>
+                                                                <i class="fa fa-chain-broken" aria-hidden="true" style="color: black;"></i>
+                                                                        @*<span class="badge badge-warning navbar-badge">demande</span>*@
+                                                                    </a>
+                                                                    <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+                                                                        <span class="dropdown-item dropdown-header">Action</span>
+                                                                        <div class="dropdown-divider"></div>
 
-                                                                <a class="dropdown-item" href="/DemandeInit/Create?enregistrerId=@enregistrement?.Id">
-                                                                    <i class="fas fa-envelope mr-2"></i> Initier la demande
-                                                                    <span class="float-right text-muted text-sm">3 mins</span>
+                                                                        <a class="dropdown-item" href="/DemandeInit/Create?enregistrerId=@enregistrement?.Id">
+                                                                    <i class="fa fa-info" aria-hidden="true"></i>
+                                                                    Initier la demande
+                                                                            <span class="float-right text-muted text-sm">maintenant</span>
                                                                 </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a href="#" class="dropdown-item">
-                                                                    <i class="fas fa-users mr-2"></i> 8 friend requests
-                                                                    <span class="float-right text-muted text-sm">12 hours</span>
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a href="#" class="dropdown-item">
-                                                                    <i class="fas fa-file mr-2"></i> 3 new reports
-                                                                    <span class="float-right text-muted text-sm">2 days</span>
-                                                                </a>
-                                                                <div class="dropdown-divider"></div>
-                                                                <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+                                                                                                        
                                                             </div>
                                                         </li>
                                                     </button>
@@ -157,7 +154,7 @@
 
                                                 </div>
                                             </div>
-                                            <div class="card-body">
+                                           <div class="card-body collapse">
                                                 <table class="table">
                                                     <tr>
                                                         <td>Numero:@enregistrement.Document?.Numero</td>
@@ -219,21 +216,16 @@
                                                         <td>DateeditionMere:  @enregistrement.Filiation?.DateeditionMere</td>
                                                         <td> LieuxEditionMere:@enregistrement.Filiation?.LieuxEditionMere</td>
                                                     </tr>
-                                                    <tr>
-                                                        <td>
-                                                           <a asp-action="Editcmp" asp-route-id="@enregistrement.Id"> <i class="fas fa-edit"></i>Edit</a> |
-                                                            <a asp-action="Details" asp-route-id=""><i class="fas fa-inbox text-warning"></i> Details</a> |
-                                                            <a asp-action="Delete" asp-route-id=""><i class="fas fa-trash text-danger"></i>Delete</a>
-                
-                                                        </td>
-                                                    </tr>
+                                            <tr>
+                                                <td>
+                                                    <a asp-action="Editcmp" asp-route-id="@enregistrement.Id"> <i class="fas fa-edit"></i></a> 
+                                                    
+                                                    @* <a asp-action="Delete" asp-route-id=""><i class="fas fa-trash text-danger"></i>Delete</a>*@
+                                                </td>
+                                            </tr>
                                                 </table>
                                             </div>
-                                            <!-- /.card-body -->
-                                            <div class="card-footer">
-                                                Footer
-                                            </div>
-                                            <!-- /.card-footer-->
+                                           <!-- /.card-body -->
                                         </div>
                                         <!-- /.card -->
                                     </div>
